@@ -10,7 +10,7 @@ namespace CheekSqueak
     [BepInPlugin(modGUID, modName, modVersion)]
     public class CheekSqueakMod : BaseUnityPlugin
     {
-        private const string modGUID = "CheekSqueak.LCMod";
+        private const string modGUID = "CheekSqueak";
         private const string modName = "Cheek Squeak";
         private const string modVersion = "1.0.0.0";
 
@@ -35,7 +35,7 @@ namespace CheekSqueak
 
             fartKey = Config.Bind("Bind", "fart", defaultKey, "");
 
-            Log.LogInfo("Binded F key to fart");
+            Log.LogInfo("Binded " + fartKey.Value + " key to fart");
 
             harmony.PatchAll(typeof(CheekSqueakMod));
             harmony.PatchAll(typeof(PlayerControllerBPatch));

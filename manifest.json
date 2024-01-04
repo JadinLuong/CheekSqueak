@@ -1,0 +1,9 @@
+{
+  "name": "CheekSqueak",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/JadinLuong/CheekSqueak",
+  "description": "Allows you to fart on command with a press of a button.",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2100"
+  ]
+}

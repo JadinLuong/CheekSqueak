@@ -27,8 +27,6 @@ namespace CheekSqueak.Patches
 
                 fartAction = new FartAction();
 
-                Debug.Log(__instance.playerUsername);
-
                 fartAction.Start(__instance);
             }
         }

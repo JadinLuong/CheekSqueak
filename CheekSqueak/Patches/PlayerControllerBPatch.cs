@@ -15,7 +15,7 @@ namespace CheekSqueak.Patches
 
         public static FartAction fartAction;
 
-        public static float timer = 4.0f;
+        public static float timer = 1.0f;
 
         [HarmonyPatch("Start")]
         [HarmonyPostfix]
@@ -48,7 +48,7 @@ namespace CheekSqueak.Patches
                 {
                     Debug.Log(fartAction.player.playerUsername + " farted");
                     fartAction.PlayFartSound();
-                    timer = 4.0f;
+                    timer = 1.0f;
                 }
             }
         }

@@ -1,8 +1,8 @@
 {
   "name": "CheekSqueak",
-  "version_number": "1.0.1",
+  "version_number": "1.0.2",
   "website_url": "",
-  "description": "Allows you to fart on command with a press of a button.",
+  "description": "Press F to fart! Make sure everyone in the server has installed this mod for the best experience.",
   "dependencies": [
     "BepInEx-BepInExPack-5.4.2100"
   ]

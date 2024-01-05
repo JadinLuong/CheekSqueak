@@ -12,7 +12,7 @@ namespace CheekSqueak
     {
         private const string modGUID = "CheekSqueak";
         private const string modName = "Cheek Squeak";
-        private const string modVersion = "1.0.0.0";
+        private const string modVersion = "1.0.2";
 
         public static ConfigEntry<Key> fartKey;
 

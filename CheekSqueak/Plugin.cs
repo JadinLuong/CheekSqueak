@@ -3,6 +3,8 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using CheekSqueak.Patches;
 using HarmonyLib;
+using System.Reflection;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace CheekSqueak
@@ -12,7 +14,7 @@ namespace CheekSqueak
     {
         private const string modGUID = "CheekSqueak";
         private const string modName = "Cheek Squeak";
-        private const string modVersion = "1.0.2";
+        private const string modVersion = "1.0.3";
 
         public static ConfigEntry<Key> fartKey;
 
@@ -39,10 +41,25 @@ namespace CheekSqueak
 
             harmony.PatchAll(typeof(CheekSqueakMod));
             harmony.PatchAll(typeof(PlayerControllerBPatch));
+            harmony.PatchAll(typeof(GameNetworkManagerPatch));
+            harmony.PatchAll(typeof(StartOfRoundPatch));
 
             Log.LogInfo("Cheek Squeak ready!");
-        }
 
+            var types = Assembly.GetExecutingAssembly().GetTypes();
+            foreach (var type in types)
+            {
+                var methods = type.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+                foreach (var method in methods)
+                {
+                    var attributes = method.GetCustomAttributes(typeof(RuntimeInitializeOnLoadMethodAttribute), false);
+                    if (attributes.Length > 0)
+                    {
+                        method.Invoke(null, null);
+                    }
+                }
+            }
+        }
     }
 
 }
